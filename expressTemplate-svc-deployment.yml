@@ -25,6 +25,6 @@ spec:
     - port: 80
       targetPort : 8000
   selector:
-    app: blue-eserver
+    app: blue-server
   # type: LoadBalancer
     # type : ClusterIP    

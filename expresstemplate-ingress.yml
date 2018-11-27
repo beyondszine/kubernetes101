@@ -17,9 +17,9 @@ spec:
       paths:
       - path: /
         backend:
-          serviceName: expresstemplateserver
+          serviceName: red-server
           servicePort: 80
-      # - path: /hello-world-two
-      #   backend:
-      #     serviceName: ingress-demo
-      #     servicePort: 80
+      - path: /blue
+        backend:
+          serviceName: blue-server
+          servicePort: 80

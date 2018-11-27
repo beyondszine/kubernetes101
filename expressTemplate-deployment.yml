@@ -1,19 +1,45 @@
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
 kind: Deployment
 metadata:
-  name: redexpresstemplate
+  name: red-express-servers
 spec:
   selector:
     matchLabels:
-      app: redtemplateserver
+      app: red-server
   replicas: 2 # tells deployment to run 2 pods matching the template
   template:
     metadata:
       labels:
-        app: redtemplateserver
+        app: red-server
     spec:
       containers:
-      - name: red-express
+      - name: red-express-server
         image: saurabhshandy/expressprodtemplate
+        env:
+          - name : COLOR
+            value : ReD
+        ports:
+        - containerPort: 8000
+---
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: blue-express-servers
+spec:
+  selector:
+    matchLabels:
+      app: blue-server
+  replicas: 2 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: blue-server
+    spec:
+      containers:
+      - name: blue-express-server
+        image: saurabhshandy/expressprodtemplate
+        env:
+          - name : COLOR
+            value : BluE
         ports:
         - containerPort: 8000
